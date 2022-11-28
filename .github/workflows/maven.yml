@@ -28,8 +28,22 @@ jobs:
           distribution: 'temurin'
           cache: maven
           
-      - name: Build with Maven
-        run: mvn -B package --file pom.xml
+      - name: Clean project from target directory
+        run: mvn clean
+        
+      - name: Validate source-code
+        run: mvn validate
+        
+      - name: Compile source-code
+        run: mvn compile
+        
+      - name: Compile source-code
+        run: mvn test
+        
+      - name: Package source-code
+        run: mvn package
+        
+        #verify install and deploy is planed and has to be implemented
         
       - name: List directories
         run: ls -al
