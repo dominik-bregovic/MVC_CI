@@ -20,10 +20,10 @@ public class cUser {
     private vUser view;
     private mUser model;
 
-
+//Outcommented for testing purposes
     public cUser() {
-        initialize();
-        startView();
+        //initialize();
+        //startView();
     }
 
     private void initialize(){
@@ -35,11 +35,11 @@ public class cUser {
         startUI();
     }
 
-    private void getChoice(){
+    protected void getChoice(){
         this.choice = this.model.getInput().charAt(0);
     }
 
-    private String getUsername(){
+    public String getUsername(){
         model.setName(model.getInput());
         return this.model.getName();
     }
@@ -71,12 +71,8 @@ public class cUser {
         } while (isRunning);
     }
 
-
-
-
-
-
-
-
+    public String myTestingMethod(){
+        return  "";
+    }
 
 }
