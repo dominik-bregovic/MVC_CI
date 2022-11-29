@@ -40,8 +40,11 @@ jobs:
       - name: test source-code
         run: mvn test
         
-      - name: Package source-code
-        run: mvn package
+      - name: Package source-code and exclude testing
+        run: mvn -DskipTests package
+        
+      - name: Generate doku
+        run: mvn site
         
         #verify install and deploy is planed and has to be implemented
         
