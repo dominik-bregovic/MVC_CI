@@ -37,7 +37,7 @@ jobs:
       - name: Compile source-code
         run: mvn compile
         
-      - name: Compile source-code
+      - name: test source-code
         run: mvn test
         
       - name: Package source-code
@@ -51,7 +51,7 @@ jobs:
       - name: Go to Target
         run: |
           cd target
-          ls -d
+          ls -a
 
        
       
