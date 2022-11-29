@@ -18,10 +18,17 @@ public class mUser {
     private String name = "";
     private final String dataFile = "data.txt";
 
+    /**
+     * Call the Users name from model
+     */
     public mUser(){
         this.name = readFromFile();
     }
 
+    /**
+     * checking for User data in our storage
+     * @return new User or already provided User
+     */
     private String readFromFile() {
 
         String data = null;
@@ -43,6 +50,10 @@ public class mUser {
         return data;
     }
 
+    /**
+     * Storing new User or edited User to file
+     * @param str the text that gets written into our storage
+     */
     private void writeToFile(String str) {
         BufferedWriter writer = null;
         try {
@@ -61,6 +72,10 @@ public class mUser {
         }
     }
 
+    /**
+     * getting the User-input over console
+     * @return
+     */
     public String getInput(){
         if (this.scanner == null){
             this.scanner = new Scanner(System.in);
@@ -68,10 +83,18 @@ public class mUser {
         return scanner.nextLine();
     }
 
+    /**
+     * getting the name of a User over the model
+     * @return the name as string
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Setting the name of a User over the model
+     * @param name the string in which the name gets stored
+     */
     public void setName(String name) {
         this.name = name;
         writeToFile(name);

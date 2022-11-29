@@ -26,24 +26,41 @@ public class cUser {
         //startView();
     }
 
+    /**
+     * Initilizing the application with calling the model and the view to the controller
+     */
     private void initialize(){
         this.model = new mUser();
         this.view = new vUser(model.getName());
     }
 
+    /**
+     * Starting view-UI from a private method
+     */
     private void startView(){
         startUI();
     }
 
+    /**
+     * read input choice from user
+     */
     protected void getChoice(){
         this.choice = this.model.getInput().charAt(0);
     }
 
+
+    /**
+     * Getting the Username from user and save it to the model
+     * @return the name with calling it from the model
+     */
     public String getUsername(){
         model.setName(model.getInput());
         return this.model.getName();
     }
 
+    /**
+     * starting our UI over the view and the logic of the controller
+     */
     public void startUI() {
 
         boolean isRunning = true;
@@ -71,6 +88,10 @@ public class cUser {
         } while (isRunning);
     }
 
+    /**
+     * The first method to check if tests are being called
+     * @return a empty string for testing
+     */
     public String myTestingMethod(){
         return  "";
     }
