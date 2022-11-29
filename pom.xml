@@ -11,6 +11,7 @@
     <groupId>at.fhj.msd</groupId>
     <artifactId>SWdesignSWArchitekturExercise</artifactId>
     <version>1.0</version>
+    <url>scp://www.mvc-project.com/www/docs/project/</url>
 
     <dependencies>
         <dependency>
@@ -21,12 +22,11 @@
         </dependency>
     </dependencies>
 
-    <distributionManagement>
-        <site>
-            <id>www.mvc-project.com</id>
-            <url>scp://www.mvc-project.com/www/docs/project/</url>
-        </site>
-    </distributionManagement>
+
+
+
+
+
 
     <build>
         <plugins>
