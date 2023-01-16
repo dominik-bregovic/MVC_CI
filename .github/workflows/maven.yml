@@ -66,17 +66,8 @@ jobs:
             username: ${{ secrets.DOCKER_USERNAME }}
             password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-
-      # will push to docker repository
-      - name: Build and push to public repository
-        uses: docker/build-push-action@v3
-        with:
-          context: .
-          file: ./Dockerfile
-          push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/mvc_image:latest
+      - name: Push Docker Image
+        run: docker push tcmtestaccount/mvc_image
 
 
 
