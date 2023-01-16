@@ -10,4 +10,4 @@ WORKDIR $APP_HOME
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "app.jar"]coek
+CMD ["java", "-jar", "app.jar"]
