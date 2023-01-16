@@ -69,7 +69,7 @@ jobs:
         run: docker build -t mvc_image:latest .
 
       - name: Push Docker Image
-        run: docker push tcmtestaccount/mvc_image
+        run: docker push mvc_image
 
 
 
