@@ -70,7 +70,7 @@ jobs:
         run: docker tag mvc-image tcmtestacccount/mvc-image:${{ github.sha }} .
 
       - name: Push Docker Image
-        run: docker push tcmtestacccount/mvc_image
+        run: docker push tcmtestacccount/mvc-image
 
 
 
