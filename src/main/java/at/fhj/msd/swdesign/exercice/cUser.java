@@ -1,5 +1,7 @@
 package at.fhj.msd.swdesign.exercice;
 
+import java.awt.*;
+
 /**
  * @author Dominik Bregovic, Schendlitz Elena, Antounius Metry Saad, Alexander Kauer
  *
@@ -22,8 +24,8 @@ public class cUser {
 
 //Outcommented for testing purposes
     public cUser() {
-        //initialize();
-        //startView();
+        initialize();
+        startView();
     }
 
     /**
@@ -38,7 +40,8 @@ public class cUser {
      * Starting view-UI from a private method
      */
     private void startView(){
-        startUI();
+        //startUI();
+        System.out.println("\nHere runs our application\n");
     }
 
     /**

@@ -1,13 +1,5 @@
-FROM openjdk:8-jdk-alpine
+FROM eclipse-temurin:19-alpine
 
-ENV APP_HOME=/usr/app
+WORKDIR /app
 
-RUN mkdir -p $APP_HOME
-
-COPY target/*.jar $APP_HOME/app.jar
-
-WORKDIR $APP_HOME
-
-EXPOSE 8080
-
-CMD ["java", "-jar", "app.jar"]
+COPY target/*.jar .
