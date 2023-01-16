@@ -28,33 +28,33 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-#      - name: Clean project from target directory
-#        run: mvn clean
-#
-#      - name: Validate source-code
-#        run: mvn validate
-#
-#      - name: Compile source-code
-#        run: mvn compile
-#
-#      - name: test source-code
-#        run: mvn test
-#
-#      - name: Package source-code and exclude testing
-#        run: mvn -DskipTests package
-#
-#      - name: Generate doku
-#        run: mvn site
-#
-#        #verify install and deploy is planed and has to be implemented
-#
-#      - name: List directories
-#        run: ls -al
-#
-#      - name: Go to Target
-#        run: |
-#          cd target
-#          ls -a
+      #Build and Compile
+      - name: Clean project from target directory
+        run: mvn clean
+
+      - name: Validate source-code
+        run: mvn validate
+
+      - name: Compile source-code
+        run: mvn compile
+
+      - name: test source-code
+        run: mvn test
+
+      - name: Package source-code and exclude testing
+        run: mvn -DskipTests package
+
+      - name: Generate doku
+        run: mvn site
+
+      #verify install and deploy is planed and has to be implemented
+      - name: List directories
+        run: ls -al
+
+      - name: Go to Target
+        run: |
+          cd target
+          ls -a
 
       #Docker
       - name: Build Docker Image
