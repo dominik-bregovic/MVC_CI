@@ -71,21 +71,20 @@ jobs:
         run: docker push tcmtestaccount/mvc_image:${{ github.sha }}
 
 
+      #Docker-Compose
       - uses: isbang/compose-action@v1.4.1
         with:
           down-flags: "--volumes"
+          #services: here fill in the service-s you want to get up (websites)
+
+
+
 
 #      - name: Build & Push Image
 #        run: |
 #          echo "${{ secrets.DOCKER_PASSWORD}}" | docker login -u "tcmtestaccount" --password-stdin
 #          docker image build -t tcmtestaccount/myapp:v1 .
 #          docker push tcmtestaccount/myapp:v1
-
-
-
-
-       
-      
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     #- name: Update dependency graph

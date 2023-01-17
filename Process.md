@@ -38,4 +38,11 @@ Don't know why, because we are creating the target folder in our pipeline.
 Additionaly we had to add a entry point in the pom.xml in order to start the application properly.
 
 
-**Pipeline done, now docker compose is next**
+
+**Docker-Compose**
+For docker compose we installed virtual box and linux Mint 21.1 Vera
+Here we made a docker compose file that pulls an nginx and mysql image from docker.
+We added the port 80 to the nginx server,
+to our hostmachine we added the port 8080.
+After that we added the "links" tag to link the nginx container to the db container.
+At the end we added the "depends_on" tag so that the db will get created before the server could access it.
