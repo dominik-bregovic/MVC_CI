@@ -47,13 +47,12 @@ jobs:
       - name: Generate doku
         run: mvn site
 
-      - name: updload arifact
       - run: mvn --batch-mode --update-snapshots verify
       - run: mkdir staging && cp target/*.jar staging
       - uses: actions/upload-artifact@v3
         with:
-           name: Package
-           path: staging
+          name: Package
+          path: staging
 
       #verify install and deploy is planed and has to be implemented
       - name: List directories
