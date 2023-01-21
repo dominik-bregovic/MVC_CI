@@ -11,6 +11,7 @@ class cUserTest {
 
     @BeforeAll
     static void setUp(){
+        System.out.println("setup");
         model= new cUser();
     }
 
