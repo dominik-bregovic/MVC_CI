@@ -47,10 +47,9 @@ jobs:
       - name: Generate doku
         run: mvn site
 
-      - name: Cacheing dependencies
+      - name: Cacheing dependencies and Packaging workflow data as artifact
       - run: mvn --batch-mode --update-snapshots verify
 
-      - name: Packaging workflow data as artifact
       - run: mkdir staging && cp target/*.jar staging
       - uses: actions/upload-artifact@v3
         with:
