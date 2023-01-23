@@ -92,5 +92,6 @@ jobs:
       #Docker-Compose
       - uses: isbang/compose-action@v1.4.1
         with:
-          down-flags: "--volumes"
+          up-flags: "--detach"          # to run in background
+          down-flags: "--volumes"       # deletes persistent volumes on down command
           #services: here fill in the service-s you want to get up (websites)

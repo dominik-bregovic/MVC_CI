@@ -15,7 +15,7 @@ services:
   db:
     image: mysql:latest
     environment:
-      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PW}
     restart: always
     volumes:
       - db_vol:/var/lib/mysql
