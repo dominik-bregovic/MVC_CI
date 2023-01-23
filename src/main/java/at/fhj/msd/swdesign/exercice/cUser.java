@@ -90,13 +90,31 @@ public class cUser {
 
         } while (isRunning);
     }
+    public mUser getModel(){
+        return  this.model;
+    }
+
+    public vUser getView(){
+        return  this.view;
+    }
+
 
     /**
      * The first method to check if tests are being called
-     * @return a empty string for testing
+     * @return testing initialization of obj
      */
-    public String myTestingMethod(){
-        return  "";
+    public mUser myTestingMethod(){
+        return  this.model;
     }
+
+    /**
+     * The first method to check if tests are being called
+     * @return testing initialization of obj
+     */
+    public vUser myTestingMethodView(){
+        return  this.view;
+    }
+
+
 
 }

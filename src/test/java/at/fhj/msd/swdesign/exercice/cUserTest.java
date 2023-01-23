@@ -7,12 +7,13 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class cUserTest {
-    public static cUser model;
+    public static cUser testObj;
 
     @BeforeAll
     static void setUp(){
-        System.out.println("setup");
-        model= new cUser();
+        System.out.println("Setup my test");
+        testObj= new cUser();
+
     }
 
 
@@ -20,6 +21,14 @@ class cUserTest {
     @DisplayName("User object test")
     @Test
     public void testModel(){
-        assertEquals("", model.myTestingMethod());
+        assertEquals(testObj.getModel(), testObj.myTestingMethod());
     }
+
+
+    @DisplayName("User object test")
+    @Test
+    public void testView(){
+        assertEquals(testObj.getView(), testObj.myTestingMethodView());
+    }
+
 }

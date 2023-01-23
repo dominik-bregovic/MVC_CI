@@ -40,7 +40,7 @@ jobs:
         run: mvn -DskipTests package
 
       - name: Generate doku
-        run: mvn site
+        run: mvn site       # location target/site/*.html
 
       #batch mode so progress does not get displayed in the logs
       #snapshot is a special version of a Maven package that refers to the latest production branch code
