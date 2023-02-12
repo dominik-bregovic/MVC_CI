@@ -5,10 +5,8 @@
 name: Java CI with Maven
 
 on:
-  push:
-    branches: [ "main" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "pullrequest" ]
 
 jobs:
   build:
@@ -19,80 +17,18 @@ jobs:
       - name: Set up JDK 17
         uses: actions/setup-java@v3 #Chaching dependencies to speed up workflow
         with:
-          java-version: '17'
-          distribution: 'temurin'
+          java-version: '19'
+          distribution: 'adopt'
           cache: maven
 
       #Build and Compile
-      - name: Clean project from target directory
-        run: mvn clean
+      - name: Build with Maven
+        run: mvn --batch-mode --update-snapshots package
 
-      - name: Validate source-code
-        run: mvn validate
+      - name: Move artifacts
+        run: mkdir staging && cp target/*.jar staging
 
-      - name: Compile source-code
-        run: mvn compile
-
-      - name: test source-code
-        run: mvn test
-
-      - name: Package source-code and exclude testing
-        run: mvn -DskipTests package
-
-      - name: Generate doku
-        run: mvn site       # location target/site/*.html
-
-      #batch mode so progress does not get displayed in the logs
-      #snapshot is a special version of a Maven package that refers to the latest production branch code and updated it when called. default would be daily
-
-      #VERIFY - run any checks on results of integration tests to ensure quality criteria are met
-      - run: mvn --batch-mode --update-snapshots verify
-      - run: mkdir staging && cp target/*.jar staging
       - uses: actions/upload-artifact@v3
         with:
           name: Package
           path: staging
-
-      #verify install and deploy is planed and has to be implemented
-      - name: List directories
-        run: ls -al
-
-      - name: Go to Jar
-        run: |
-          cd staging
-          ls -a
-  
-
-  docker_hub:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/checkout@v3
-
-      #downloading artifact
-      - name: Download math result for job 2
-        uses: actions/download-artifact@v3
-        with:
-            name: Package
-
-      #Docker
-      - name: Build Docker Image
-        run: |
-          docker build -t tcmtestaccount/mvc_image:${{ github.sha }} .
-
-      - name: Login to Docker Hub
-        uses: docker/login-action@v2
-        with:
-            username: ${{ secrets.DOCKER_USERNAME }}
-            password: ${{ secrets.DOCKER_PASSWORD }}
-
-      - name: Push Docker Image
-        run: docker push tcmtestaccount/mvc_image:${{ github.sha }}
-
-
-      #Docker-Compose
-      - uses: isbang/compose-action@v1.4.1
-        with:
-          up-flags: "--detach"          # to run in background
-          down-flags: "--volumes"       # deletes persistent volumes on down command
-          #services: here fill in the service-s you want to get up (websites)
