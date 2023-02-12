@@ -33,3 +33,10 @@ jobs:
         with:
           name: Package
           path: staging
+
+
+      - name: Java CI 04 with Checkstyle
+        run-name: ${{ github.actor }} checks Java Style
+
+      - name: Run java checkstyle
+        uses: nikitasavinov/checkstyle-action@0.6.0
