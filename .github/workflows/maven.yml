@@ -44,6 +44,7 @@ jobs:
 
       #batch mode so progress does not get displayed in the logs
       #snapshot is a special version of a Maven package that refers to the latest production branch code and updated it when called. default would be daily
+
       #VERIFY - run any checks on results of integration tests to ensure quality criteria are met
       - run: mvn --batch-mode --update-snapshots verify
       - run: mkdir staging && cp target/*.jar staging
